@@ -26,7 +26,7 @@ A aplicação recebe um relato médico e retorna um JSON contendo:
 1. Clone o repositório:
 
 ```
-git clone https://github.com/seu-usuario/ai-medical-form.git
+git clone https://github.com/JoaoPedroSilvaDEV2024/ai-medical-form.git
 ```
 
 2. Instale as dependências:
