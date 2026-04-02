@@ -72,6 +72,7 @@ Paciente relata dor de cabeça intensa há três dias, associada à sensibilidad
   "diagnosticos": ["enxaqueca"],
   "condutas": ["repouso", "hidratação", "analgésico"]
 }
+````
 
 ## 🔒 Garantias do Sistema
 - Uso exclusivo de informações presentes no texto
