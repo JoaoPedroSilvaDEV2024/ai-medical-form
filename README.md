@@ -4,7 +4,7 @@
 
 ## 📌 Descrição
 
-Este projeto transforma textos clínicos não estruturados em informações organizadas utilizando um modelo de linguagem (LLM).
+Este projeto transforma textos clínicos não estruturados em informações organizadas, simulando o uso de um modelo de linguagem (LLM).
 
 A aplicação recebe um relato médico e retorna um JSON contendo:
 
@@ -17,7 +17,7 @@ A aplicação recebe um relato médico e retorna um JSON contendo:
 ## 🚀 Tecnologias
 
 * Python
-* OpenAI API
+* Estrutura preparada para integração com LLM (OpenAI, Anthropic, etc)
 
 ---
 
@@ -35,13 +35,7 @@ git clone https://github.com/seu-usuario/ai-medical-form.git
 pip install openai
 ```
 
-3. Configure sua API Key no arquivo `ai_service.py`:
-
-```python
-client = OpenAI(api_key="SUA_API_KEY_AQUI")
-```
-
-4. Execute:
+3. Execute:
 
 ```
 python app.py
@@ -51,15 +45,23 @@ python app.py
 
 ## 🧠 Uso de IA
 
-A solução utiliza um modelo de linguagem para interpretar o texto clínico e gerar uma saída estruturada em JSON.
+A solução foi projetada para utilizar um modelo de linguagem (LLM) na análise de textos clínicos.
 
-O prompt foi projetado para:
+O prompt foi estruturado para:
 
-* Garantir formato consistente
-* Evitar respostas fora do contexto
+* Garantir saída em JSON válido
+* Evitar informações fora do contexto
 * Manter objetividade
 
-Também foi implementado tratamento de erro e fallback local, garantindo funcionamento mesmo sem acesso à API.
+A arquitetura permite integração direta com APIs como OpenAI.
+
+---
+
+## ⚠️ Observação importante
+
+A integração com LLM está implementada na estrutura do código, porém foi utilizado um fallback local para simulação das respostas, evitando dependência de quota de API.
+
+Em um ambiente real, a função pode ser facilmente conectada a um modelo de linguagem externo.
 
 ---
 
@@ -81,7 +83,7 @@ Como evolução, pode-se aplicar RAG com fontes confiáveis.
 A solução pode ser integrada como um serviço backend:
 
 1. O sistema envia o texto da consulta
-2. A API processa via LLM
+2. O serviço processa os dados
 3. Retorna JSON estruturado
 4. O sistema consome para exibição ou armazenamento
 
@@ -89,13 +91,14 @@ A solução pode ser integrada como um serviço backend:
 
 ## 🚀 Melhorias futuras
 
-* Integração com banco de dados
+* Integração real com LLM
 * Uso de RAG com histórico do paciente
+* Integração com banco de dados
 * Interface web
 * Monitoramento de respostas
 
 ---
 
-## 📌 Observações
+## 📌 Observações finais
 
-A arquitetura foi pensada para ser simples, modular e facilmente integrável a sistemas reais.
+A arquitetura foi pensada para ser simples, modular e facilmente adaptável para uso em sistemas reais, com foco em confiabilidade e escalabilidade.
