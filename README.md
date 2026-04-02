@@ -1,104 +1,58 @@
 # ai-medical-form
 
-# 🧠 AI Medical Text Processor
+# 🧠 AI Medical Form Processor
+
+Sistema de processamento de textos clínicos utilizando Inteligência Artificial (LLM) para extração estruturada de informações médicas.
+
+---
 
 ## 📌 Descrição
 
-Este projeto transforma textos clínicos não estruturados em informações organizadas, simulando o uso de um modelo de linguagem (LLM).
+Este projeto recebe um texto clínico (como anotações médicas ou relatos de pacientes) e utiliza um modelo de linguagem (OpenAI GPT) para gerar uma saída estruturada em JSON.
 
-A aplicação recebe um relato médico e retorna um JSON contendo:
+A saída contém:
 
-* Resumo clínico
-* Possíveis diagnósticos
-* Condutas/tratamentos
+- Resumo clínico do caso
+- Possíveis diagnósticos citados
+- Condutas ou tratamentos mencionados
 
----
-
-## 🚀 Tecnologias
-
-* Python
-* Estrutura preparada para integração com LLM (OpenAI, Anthropic, etc)
+O objetivo é demonstrar como IA pode ser aplicada para organização e estruturação de informações em sistemas reais de saúde.
 
 ---
 
-## ⚙️ Como executar
+## ⚙️ Funcionalidades
 
-1. Clone o repositório:
-
-```
-git clone https://github.com/JoaoPedroSilvaDEV2024/ai-medical-form.git
-```
-
-2. Instale as dependências:
-
-```
-pip install openai
-```
-
-3. Execute:
-
-```
-python app.py
-```
+- Entrada de texto clínico via terminal
+- Processamento com LLM (OpenAI GPT-4o-mini)
+- Extração estruturada de informações médicas
+- Retorno em formato JSON consistente
+- Fallback local em caso de falha da API
+- Tratamento básico de erros e resposta inválida
 
 ---
 
-## 🧠 Uso de IA
+## 🧠 Tecnologias utilizadas
 
-A solução foi projetada para utilizar um modelo de linguagem (LLM) na análise de textos clínicos.
-
-O prompt foi estruturado para:
-
-* Garantir saída em JSON válido
-* Evitar informações fora do contexto
-* Manter objetividade
-
-A arquitetura permite integração direta com APIs como OpenAI.
+- Python 3
+- OpenAI API (GPT-4o-mini)
+- JSON
+- Variáveis de ambiente (.env recomendado)
 
 ---
 
-## ⚠️ Observação importante
-
-A integração com LLM está implementada na estrutura do código, porém foi utilizado um fallback local para simulação das respostas, evitando dependência de quota de API.
-
-Em um ambiente real, a função pode ser facilmente conectada a um modelo de linguagem externo.
-
----
-
-## 🛡️ Redução de riscos
-
-Para reduzir o risco de informações incorretas:
-
-* Uso de prompts restritivos
-* Limitação ao conteúdo do texto
-* Validação do formato da resposta
-* Possibilidade de revisão humana
-
-Como evolução, pode-se aplicar RAG com fontes confiáveis.
+## 📂 Estrutura do projeto
+.
+├── app.py # Interface principal (input/output)
+├── ai_service.py # Integração com LLM e lógica de IA
+└── README.md
 
 ---
 
-## 🔗 Integração
+## 🚀 Como executar o projeto
 
-A solução pode ser integrada como um serviço backend:
+### 1. Clone o repositório
+```bash
+git clone <URL_DO_REPOSITORIO>
+cd nome-do-projeto
 
-1. O sistema envia o texto da consulta
-2. O serviço processa os dados
-3. Retorna JSON estruturado
-4. O sistema consome para exibição ou armazenamento
-
----
-
-## 🚀 Melhorias futuras
-
-* Integração real com LLM
-* Uso de RAG com histórico do paciente
-* Integração com banco de dados
-* Interface web
-* Monitoramento de respostas
-
----
-
-## 📌 Observações finais
-
-A arquitetura foi pensada para ser simples, modular e facilmente adaptável para uso em sistemas reais, com foco em confiabilidade e escalabilidade.
+2. Instale as dependências
