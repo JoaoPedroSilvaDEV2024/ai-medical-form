@@ -1,82 +1,63 @@
 # ai-medical-form
 
-🧠 AI Medical Form Processor
+🧠 AI Medical Text Processor
 📌 Descrição
 
-Este projeto recebe um texto clínico (como anotações médicas ou relatos de pacientes) e utiliza um modelo de inteligência artificial (OpenAI GPT) para transformar esse texto em informações estruturadas no formato JSON.
+Este projeto transforma textos médicos não estruturados em informações organizadas usando Inteligência Artificial (LLM).
 
-O sistema extrai automaticamente:
+A aplicação recebe um texto clínico e retorna uma estrutura em formato JSON contendo:
 
-Um resumo clínico do caso
+Resumo clínico
 Possíveis diagnósticos citados no texto
 Condutas ou tratamentos mencionados
-
-O objetivo é demonstrar como a IA pode ser usada para organizar informações não estruturadas e facilitar o uso em sistemas reais.
-
-⚙️ Funcionalidades
-Entrada de texto via terminal
-Processamento usando modelo de linguagem (LLM)
-Extração de informações médicas estruturadas
-Retorno em formato JSON consistente
-Sistema de fallback em caso de erro na API
-Tratamento básico de exceções
-🧠 Tecnologias utilizadas
-Python 3
+🚀 Tecnologias
+Python
 OpenAI API (GPT-4o-mini)
 JSON
-Variáveis de ambiente
 📂 Estrutura do projeto
+app.py → arquivo principal (entrada do usuário)
+ai_service.py → integração com o modelo de IA e processamento do texto
+⚙️ Como executar
+Instalar dependência:
+pip install openai
+Definir a chave da OpenAI:
 
-O projeto é dividido em dois arquivos principais:
+Windows (PowerShell):
+setx OPENAI_API_KEY "sua_chave_aqui"
 
-app.py → responsável pela entrada de dados e exibição do resultado
-ai_service.py → responsável pela integração com a IA e processamento do texto
-🚀 Como executar o projeto
+Linux/Mac:
+export OPENAI_API_KEY="sua_chave_aqui"
 
-Primeiro, clone o repositório para sua máquina.
-Depois instale a dependência da OpenAI com pip install openai.
-
-Em seguida, configure sua chave da OpenAI em uma variável de ambiente chamada OPENAI_API_KEY.
-
-No Windows, use setx OPENAI_API_KEY "sua_chave_aqui".
-No Linux ou Mac, use export OPENAI_API_KEY="sua_chave_aqui".
-
-Por fim, execute o projeto com python app.py.
-
-🧪 Exemplo de uso
+Rodar o projeto:
+python app.py
+🧪 Exemplo
 
 Entrada:
-Paciente relata dor de cabeça intensa há três dias, associada à sensibilidade à luz. Nega febre. Possui histórico de enxaqueca. Foi orientado repouso, hidratação e prescrito analgésico.
+Paciente relata dor de cabeça intensa há três dias, com sensibilidade à luz...
 
-Saída esperada:
+Saída:
 {
-"resumo_clinico": "Paciente com cefaleia intensa associada à fotofobia e histórico de enxaqueca.",
-"diagnosticos": ["Enxaqueca"],
-"condutas": ["Repouso", "Hidratação", "Analgésico"]
+"resumo_clinico": "Paciente com cefaleia intensa há 3 dias associada à fotossensibilidade",
+"diagnosticos": ["enxaqueca"],
+"condutas": ["repouso", "hidratação", "analgésico"]
 }
 
-🏗️ Arquitetura
+🧠 Como funciona
+Usuário digita um texto clínico
+O sistema envia o texto para um modelo de linguagem (LLM)
+O modelo retorna uma resposta estruturada em JSON
+O sistema trata e exibe o resultado
+Caso falhe, retorna uma resposta padrão
+🔒 Regras do sistema
+Não inventa informações
+Usa apenas o que está no texto
+Sempre retorna JSON válido
+Estrutura fixa para consistência
+🎯 Objetivo
 
-O sistema funciona de forma simples:
+Demonstrar capacidade de:
 
-O app.py recebe o texto do usuário.
-O ai_service.py envia esse texto para a OpenAI e processa a resposta.
-A API retorna um JSON estruturado com as informações extraídas.
-
-🎯 Objetivo do projeto
-
-Este projeto tem como objetivo demonstrar habilidades em:
-
-Uso de inteligência artificial (LLMs)
-Engenharia de prompts
-Transformação de texto em dados estruturados
-Organização de código backend
-Aplicação prática de IA em sistemas reais
-⚠️ Observação importante
-
-Este sistema não substitui análise médica profissional.
-Ele é apenas uma demonstração técnica de uso de IA aplicada à organização de dados clínicos.
-
-👨‍💻 Autor
-
-Projeto desenvolvido para fins de estudo e demonstração de integração de IA em sistemas reais.
+Uso de LLMs na prática
+Extração de informação de texto não estruturado
+Engenharia de prompt
+Criação de soluções integráveis em sistemas reais
