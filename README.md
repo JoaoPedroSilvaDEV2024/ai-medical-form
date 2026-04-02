@@ -1,63 +1,74 @@
 # ai-medical-form
 
-🧠 AI Medical Text Processor
-📌 Descrição
+# 🧠 AI Medical Text Processor
 
-Este projeto transforma textos médicos não estruturados em informações organizadas usando Inteligência Artificial (LLM).
+## 📌 Visão Geral
 
-A aplicação recebe um texto clínico e retorna uma estrutura em formato JSON contendo:
+Este projeto implementa um sistema de processamento de linguagem natural aplicado ao contexto médico, utilizando um modelo de linguagem (LLM) para estruturar informações clínicas a partir de texto livre.
 
-Resumo clínico
-Possíveis diagnósticos citados no texto
-Condutas ou tratamentos mencionados
-🚀 Tecnologias
-Python
-OpenAI API (GPT-4o-mini)
-JSON
-📂 Estrutura do projeto
-app.py → arquivo principal (entrada do usuário)
-ai_service.py → integração com o modelo de IA e processamento do texto
-⚙️ Como executar
-Instalar dependência:
-pip install openai
-Definir a chave da OpenAI:
+O objetivo é transformar relatos médicos não estruturados em dados organizados, facilitando análise, registro e integração com sistemas de saúde.
 
-Windows (PowerShell):
-setx OPENAI_API_KEY "sua_chave_aqui"
+---
 
-Linux/Mac:
-export OPENAI_API_KEY="sua_chave_aqui"
+## 🚀 Funcionalidades
 
-Rodar o projeto:
-python app.py
-🧪 Exemplo
+A aplicação recebe um texto clínico e retorna uma estrutura em JSON contendo:
 
-Entrada:
-Paciente relata dor de cabeça intensa há três dias, com sensibilidade à luz...
+- Resumo clínico do caso
+- Possíveis diagnósticos citados no texto
+- Condutas e tratamentos mencionados
 
-Saída:
+---
+
+## 🧠 Abordagem Técnica
+
+O sistema utiliza engenharia de prompt para orientar o modelo de linguagem a:
+
+- Extrair apenas informações explícitas do texto
+- Evitar alucinações (não inventar dados)
+- Retornar resposta exclusivamente em JSON válido
+- Manter estrutura consistente de saída
+
+Em caso de falha na geração da resposta, o sistema utiliza um fallback local para garantir robustez.
+
+---
+
+## ⚙️ Tecnologias Utilizadas
+
+- Python 3
+- OpenAI API (GPT-4o-mini)
+- JSON para estruturação de dados
+- Variáveis de ambiente para segurança da API Key
+
+---
+
+## 📂 Estrutura do Projeto
+
+- app.py → ponto de entrada da aplicação (input do usuário e exibição da resposta)
+- ai_service.py → camada de integração com LLM e processamento do texto clínico
+
+---
+
+## 🔁 Fluxo da Aplicação
+
+1. Usuário insere texto clínico
+2. O sistema monta um prompt estruturado
+3. O texto é enviado ao modelo de linguagem
+4. O modelo retorna um JSON estruturado
+5. O sistema valida e converte a resposta
+6. Resultado é exibido ao usuário
+
+---
+
+## 🧪 Exemplo
+
+### Entrada:
+Paciente relata dor de cabeça intensa há três dias, associada à sensibilidade à luz. Nega febre. Possui histórico de enxaqueca. Foi orientado repouso, hidratação e prescrito analgésico.
+
+### Saída:
+```json
 {
-"resumo_clinico": "Paciente com cefaleia intensa há 3 dias associada à fotossensibilidade",
-"diagnosticos": ["enxaqueca"],
-"condutas": ["repouso", "hidratação", "analgésico"]
+  "resumo_clinico": "Paciente com cefaleia intensa há 3 dias associada à fotossensibilidade, sem febre, com histórico de enxaqueca.",
+  "diagnosticos": ["enxaqueca"],
+  "condutas": ["repouso", "hidratação", "analgésico"]
 }
-
-🧠 Como funciona
-Usuário digita um texto clínico
-O sistema envia o texto para um modelo de linguagem (LLM)
-O modelo retorna uma resposta estruturada em JSON
-O sistema trata e exibe o resultado
-Caso falhe, retorna uma resposta padrão
-🔒 Regras do sistema
-Não inventa informações
-Usa apenas o que está no texto
-Sempre retorna JSON válido
-Estrutura fixa para consistência
-🎯 Objetivo
-
-Demonstrar capacidade de:
-
-Uso de LLMs na prática
-Extração de informação de texto não estruturado
-Engenharia de prompt
-Criação de soluções integráveis em sistemas reais
