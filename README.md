@@ -72,3 +72,27 @@ Paciente relata dor de cabeça intensa há três dias, associada à sensibilidad
   "diagnosticos": ["enxaqueca"],
   "condutas": ["repouso", "hidratação", "analgésico"]
 }
+
+## 🔒 Garantias do Sistema
+- Uso exclusivo de informações presentes no texto
+- Saída sempre estruturada em JSON válido
+- Controle de aleatoriedade (temperature = 0)
+- Redução de respostas inconsistentes via prompt engineering
+
+## 🧩 Possíveis Evoluções
+- Integração com bancos de dados médicos
+- Uso de RAG (Retrieval Augmented Generation)
+- Versionamento de prompts
+- Interface web para profissionais da saúde
+- Logs e monitoramento de respostas do modelo
+
+## 🎯 Objetivo do Projeto
+Demonstrar capacidade em:
+- Integração com LLMs em aplicações reais
+- Engenharia de prompt aplicada
+- Estruturação de dados a partir de texto não estruturado
+- Construção de pipelines simples de IA
+- Boas práticas de software (organização, fallback, modularização)
+
+## 👨‍💻 Observação
+Este projeto foi desenvolvido com foco em clareza de arquitetura, aplicação prática de IA generativa e simulação de uso em sistemas reais de saúde.
